@@ -14,7 +14,7 @@ const HighlighInput = (props: { textLabel: string; fullWidth: boolean; widthClas
   }
 
   return (
-    <Grid spacing={2} xs={props.widthClass}>
+    <Grid  xs={props.widthClass} item>
       <TextField label={props.textLabel} fullWidth={props.fullWidth} onChange={handleChange}/>
     </Grid>
   );

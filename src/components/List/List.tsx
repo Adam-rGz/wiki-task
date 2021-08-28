@@ -4,11 +4,11 @@ import ResultCard from '../ResultCard/ResultCard';
 import { Item } from '../../myTypes';
 
 
-const List = (props: { searchingResults: Item[]; highlightValue: string; loading: boolean; }) => {
+const List = (props: { searchingResults: Item[]; highlightValue: string; loading: boolean; afterSearch: boolean; }) => {
 
   return (
     <Box p={4}>
-      <Grid container justifyContent="center" spacing={3}>
+      <Grid container justifyContent="center" spacing={3} >
         {props.loading ? <CircularProgress disableShrink /> : props.searchingResults.map(({
           pageid,
           snippet,
@@ -21,7 +21,7 @@ const List = (props: { searchingResults: Item[]; highlightValue: string; loading
           </Grid>
         ))
         }
-        {!props.loading && props.searchingResults.length === 0 ? <Typography variant="h6" gutterBottom>Brak wyników</Typography> : ''}
+        {!props.loading && props.searchingResults.length === 0 && props.afterSearch ? <Typography variant="h6" gutterBottom>Brak wyników</Typography> : ''}
       </Grid>
     </Box>
   );

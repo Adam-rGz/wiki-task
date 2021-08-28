@@ -17,7 +17,7 @@ const Header = (props: { setSearchingQuery: React.Dispatch<React.SetStateAction<
       </Box>
 
       <Box p={2}>
-        <Grid container xs={12} justify="flex-end">
+        <Grid container justifyContent="flex-end">
           <HighlighInput textLabel="Tekst podświetlenia" fullWidth={true} widthClass={6} setCurrentHighlightValue={props.setCurrentHighlightValue}/>
           <HighlightButton buttonText="Podświetl wszystkie" setHighlightValue={props.setHighlightValue} currentHighlightValue={props.currentHighlightValue}/>
         </Grid>

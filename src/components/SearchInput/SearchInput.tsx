@@ -12,7 +12,7 @@ const SearchInput = (props: { textLabel: string; fullWidth: boolean; widthClass:
   }
 
   return (
-    <Grid spacing={2} xs={props.widthClass}>
+    <Grid   item>
       <TextField label={props.textLabel} fullWidth={props.fullWidth} onChange={handleChange} />
     </Grid>
   );

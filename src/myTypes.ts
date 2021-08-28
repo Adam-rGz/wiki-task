@@ -4,12 +4,3 @@ export type Item = {
   title: string,
   timestamp: string,
 };
-
-export type apiQuery = {
-  batchcomplete: any,
-  continue: any,
-  query: {
-    search: Item[],
-    searchInfo: any,
-  },
-};

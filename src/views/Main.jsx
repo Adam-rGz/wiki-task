@@ -16,6 +16,7 @@ const Main = () => {
   const [currentHighlightValue, setCurrentHighlightValue] = useState('');
 
   const [loading, setLoading] = useState(false);
+  const [afterSearch, setafterSearch] = useState(false);
 
   const checkInput = (inputValue) => {
     if (inputValue === '') {
@@ -25,16 +26,19 @@ const Main = () => {
     wikiApi(inputValue)
       .then((data) => {
         const { query: { search } } = data;
-        setLoading(false)
+        setLoading(false);
+        setafterSearch(true);
         return search;
       })
       .then((data) => {
         setSearchingResults(data);
-        setLoading(false)
+        setLoading(false);
+        setafterSearch(true);
       })
       .catch(() => {
         console.log('błąd');
         setLoading(false);
+        setafterSearch(true);
       });
   };
 
@@ -50,7 +54,7 @@ const Main = () => {
   return (
     <Container maxWidth="md">
       <Header setSearchingQuery={setSearchingQuery} setHighlightValue={setHighlightValue} currentHighlightValue={currentHighlightValue} setCurrentHighlightValue={setCurrentHighlightValue} />
-      <List searchingResults={searchingResults} highlightValue={highlightValue} loading={loading}/>
+      <List searchingResults={searchingResults} highlightValue={highlightValue} loading={loading} afterSearch={afterSearch}/>
     </Container>
   );
 }
